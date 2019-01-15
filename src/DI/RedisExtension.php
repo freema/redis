@@ -36,7 +36,7 @@ final class RedisExtension extends CompilerExtension
 		'ttl' => null,
 	];
 
-	public function loadConfiguration(): void
+	public function loadConfiguration()
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->validateConfig($this->defaults);
@@ -72,13 +72,13 @@ final class RedisExtension extends CompilerExtension
 		}
 	}
 
-	public function beforeCompile(): void
+	public function beforeCompile()
 	{
 		$this->beforeCompileStorage();
 		$this->beforeCompileSession();
 	}
 
-	public function beforeCompileStorage(): void
+	public function beforeCompileStorage()
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->validateConfig($this->defaults);
@@ -103,7 +103,7 @@ final class RedisExtension extends CompilerExtension
 		}
 	}
 
-	public function beforeCompileSession(): void
+	public function beforeCompileSession()
 	{
 		$builder = $this->getContainerBuilder();
 		$config = $this->validateConfig($this->defaults);
@@ -150,7 +150,7 @@ final class RedisExtension extends CompilerExtension
 		}
 	}
 
-	public function afterCompile(ClassType $class): void
+	public function afterCompile(ClassType $class)
 	{
 		$config = $this->validateConfig($this->defaults);
 

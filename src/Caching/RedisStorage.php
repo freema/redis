@@ -27,9 +27,8 @@ final class RedisStorage implements IStorage
 	 * @param string  $key
 	 * @param mixed   $data
 	 * @param mixed[] $dependencies
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function write($key, $data, array $dependencies): void
+	public function write($key, $data, array $dependencies)
 	{
 		$this->client->set($key, json_encode($data));
 
@@ -47,7 +46,6 @@ final class RedisStorage implements IStorage
 	/**
 	 * @param string $key
 	 * @return mixed
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
 	public function read($key)
 	{
@@ -62,18 +60,16 @@ final class RedisStorage implements IStorage
 
 	/**
 	 * @param string $key
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function lock($key): void
+	public function lock($key)
 	{
 		// locking not implemented
 	}
 
 	/**
 	 * @param string $key
-	 * @phpcsSuppress SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint
 	 */
-	public function remove($key): void
+	public function remove($key)
 	{
 		$this->client->del([$key]);
 	}
@@ -81,7 +77,7 @@ final class RedisStorage implements IStorage
 	/**
 	 * @param mixed[] $conditions
 	 */
-	public function clean(array $conditions): void
+	public function clean(array $conditions)
 	{
 		$this->client->flushall();
 	}
